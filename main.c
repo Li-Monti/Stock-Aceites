@@ -34,6 +34,7 @@ Las funcionabilidades de interes que pretende resolver el cliente a partir del s
 #include "consultasConAgregaciones.h"
 #include "busquedaConFiltros.h"
 #include "ordenamientoYBuscado.h"
+#include "otrasFunciones.h"
 #define max_Aceites 50
 
 int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
@@ -55,7 +56,9 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
     do {
         printf("Ingrese la marca (sin espacios vacios): ");
 
-        valido = scanf("%49s", inventario[cantidadAceites].marca);
+        valido = scanf("%49s", inventario[cantidadAceites].marcaOriginal);
+        strcpy(inventario[cantidadAceites].marca, inventario[cantidadAceites].marcaOriginal ) ;
+        miniscula(inventario[cantidadAceites].marca);
 
         if(valido!=1){
             printf("Error: Ingrese una marca valida\n\n");
@@ -104,6 +107,7 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
     printf("\nResultado: ");
     scanf("%d", &tipoAceite);
 
+
     if ( tipoAceite > 4 || tipoAceite < 1 ) {
         printf("Error: Ingrese un valor valido");
     }
@@ -111,16 +115,33 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
 
     switch (tipoAceite) {
         case 1:
-            strcpy(inventario[cantidadAceites].tipo, "Girasol");
+            strcpy(inventario[cantidadAceites].tipoOriginal, "Girasol");
+
+            strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
+
+            miniscula(inventario[cantidadAceites].tipo);
+
             break;
         case 2:
-            strcpy(inventario[cantidadAceites].tipo, "Oliva");
+            strcpy(inventario[cantidadAceites].tipoOriginal, "Oliva");
+
+            strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
+
+            miniscula(inventario[cantidadAceites].tipo);
             break;
         case 3:
-            strcpy(inventario[cantidadAceites].tipo, "Maiz");
+            strcpy(inventario[cantidadAceites].tipoOriginal, "Maiz");
+
+            strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
+
+            miniscula(inventario[cantidadAceites].tipo);
             break;
         case 4:
-            strcpy(inventario[cantidadAceites].tipo, "Mezcla");
+            strcpy(inventario[cantidadAceites].tipoOriginal, "Mezcla");
+
+            strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
+
+            miniscula(inventario[cantidadAceites].tipo);
             break;
     }
 
