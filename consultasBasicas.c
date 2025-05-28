@@ -14,11 +14,11 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     int valorPre;
     int stockTotal = 0;
     int encontrado = 0;
-
+//prueba
 
     do{
         printf("Ingrese la marca: ");
-        scanf("%19s", marcaBuscada);
+        scanf("%49s", marcaBuscada);
         printf("Elija la presentacion del Aceite:");
         printf("\n1. 500 ml");
         printf("\n2. 1000 ml");
@@ -57,7 +57,7 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     for (int i = 0; i < cantidadAceites; i++) {
         if (strcmp(inventario[i].marca, marcaBuscada) == 0 &&
             inventario[i].presentacion == presentacionBuscada) {
-            printf("| %6d | %-12s | %6.2f | %5d |\n",
+            printf("| %6d | %s | %6.2f | %5d |\n",
                   inventario[i].codigo,
                   inventario[i].tipo,
                   inventario[i].precio,
@@ -91,7 +91,7 @@ void cantidadUnidades1000ml(producto inventario[], int cantidadAceites) {
     for (int i=0 ; i < cantidadAceites; i++) {
         if (inventario[i].presentacion==1000) {
 
-            printf("| %6d | %-12s | %6.2f | %5d |\n",
+            printf("| %6d | %s | %6.2f | %5d |\n",
                   inventario[i].codigo,
                   inventario[i].tipo,
                   inventario[i].precio,
@@ -116,7 +116,7 @@ void listadoStockPorTipo(producto inventario[], int cantidadAceites) {
     printf("--------------------------------------------------------------\n");
 
     for (int i= 0; i < cantidadAceites; i++) {
-            printf("| %6d | %-12s | %12d | %6.2f | %9d |\n",
+            printf("| %6d | %s | %12d | %6.2f | %9d |\n",
                   inventario[i].codigo,
                   inventario[i].marca,
                   inventario[i].presentacion,
