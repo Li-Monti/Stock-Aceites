@@ -53,12 +53,14 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
     }while (valido!=1);
 
     do {
-        printf("Ingrese la marca: ");
+        printf("Ingrese la marca (sin espacios vacios): ");
 
-        valido = scanf("%19s", inventario[cantidadAceites].marca);
+        valido = scanf("%49s", inventario[cantidadAceites].marca);
 
         if(valido!=1){
             printf("Error: Ingrese una marca valida\n\n");
+            while (getchar() != '\n');
+        } else {
             while (getchar() != '\n');
         }
 

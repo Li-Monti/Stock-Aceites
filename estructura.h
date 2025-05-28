@@ -17,7 +17,7 @@
 
     typedef struct {
         int codigo;
-        char marca[20];
+        char marca[50];
         int presentacion;
         char tipo[20] ;
         float precio;

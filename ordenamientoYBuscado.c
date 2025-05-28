@@ -81,7 +81,7 @@ void stockCocineroVencimiento(producto inventario[], int cantidadAceites) {
         if (strcmp(inventario[i].marca, "Cocinero") == 0 &&
             compararFechas(inventario[i].fechaVencimiento, limite) < 0) {
 
-            printf("| %6d | %s | %.2f | %5d | %d/%d/%d |\n",
+            printf("| %d | %s | %.2f | %5d | %d/%d/%d |\n",
                 inventario[i].codigo,
                 inventario[i].tipo,
                 inventario[i].precio,

@@ -53,7 +53,7 @@ do{
         if (strcmp(inventario[i].tipo, tipoBuscado) == 0) {
             litros = (float)inventario[i].presentacion / 1000;
 
-            printf("| %6d | %.2f L | %-12s | %6.2f | %5d |\n",
+            printf("| %d | %.2f L | %s | %.2f | %d |\n",
                   inventario[i].codigo,
                   litros,
                   inventario[i].tipo,
@@ -86,7 +86,7 @@ void porcentajesAceites(producto inventario[], int cantidadAceites) {
 
         if (inventario[i].presentacion == 1500 && inventario[i].precio < 4800) {
 
-            printf("| %6d | %s | %6.2f | %5d |\n",
+            printf("| %6d | %s | %.2f | %d |\n",
                   inventario[i].codigo,
                   inventario[i].tipo,
                   inventario[i].precio,
