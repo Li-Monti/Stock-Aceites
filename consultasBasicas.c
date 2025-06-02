@@ -23,7 +23,7 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     int valorPre;
     int stockTotal = 0;
     int encontrado = 0;
-
+//prueba
 
     do{
         printf("Ingrese la marca: ");
