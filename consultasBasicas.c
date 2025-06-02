@@ -2,28 +2,17 @@
 #include "estructura.h"
 #include <stdio.h>
 #include <string.h>
-void convertirMinusculas(char original[], char minuscula[]) {
-    int i = 0;
-    while (original[i] != '\0') {
-        if (original[i] >= 'A' && original[i] <= 'Z') {
-            minuscula[i] = original[i] + 32;
-        } else {
-            minuscula[i] = original[i];
-        }
-        i++;
-    }
-    minuscula[i] = '\0';
-}
+#include "otrasFunciones.h"
 
 
 void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     char marcaBuscada[20];
-    char marcaminuscula[20];
+    char marcaMinuscula[20];
     int presentacionBuscada;
     int valorPre;
     int stockTotal = 0;
     int encontrado = 0;
-//prueba
+
 
     do{
         printf("Ingrese la marca: ");
@@ -42,8 +31,9 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
 
     }while (valorPre < 1 || valorPre > 4);
 
-    convertirMinusculas(marcaBuscada, marcaminuscula);
 
+    strcpy(marcaMinuscula, marcaBuscada);
+    minuscula(marcaMinuscula);
     switch (valorPre){
         case 1:
             presentacionBuscada = 500;
@@ -66,7 +56,7 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     printf("----------------------------------------------\n");
 
     for (int i = 0; i < cantidadAceites; i++) {
-        if (strcmp(inventario[i].marca, marcaminuscula) == 0 &&
+        if (strcmp(inventario[i].marca, marcaMinuscula) == 0 &&
             inventario[i].presentacion == presentacionBuscada) {
             printf("| %6d | %s | %s | %6.2f | %5d |\n",
                   inventario[i].codigo,
