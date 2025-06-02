@@ -1,6 +1,3 @@
-//
-// Created by Li on 5/25/2025.
-//
 
 #ifndef ORDENAMIENTOYBUSCADO_H
 #define ORDENAMIENTOYBUSCADO_H

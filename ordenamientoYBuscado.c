@@ -30,7 +30,7 @@ void ordenarPorVencimiento(producto inventario[], int cantidadAceites) {
     for (int i = 0; i < cantidadAceites; i++) {
         printf("| %6d | %s | %.2f | %d | %d-%d-%d |\n",
                   inventario[i].codigo,
-                  inventario[i].tipo,
+                  inventario[i].tipoOriginal,
                   inventario[i].precio,
                   inventario[i].stock,
                   inventario[i].fechaVencimiento.anio,
@@ -78,12 +78,12 @@ void stockCocineroVencimiento(producto inventario[], int cantidadAceites) {
     printf("------------------------------------------------------------------\n");
 
     for (int i = 0; i < cantidadAceites; i++) {
-        if (strcmp(inventario[i].marca, "Cocinero") == 0 &&
+        if (strcmp(inventario[i].marca, "cocinero") == 0 &&
             compararFechas(inventario[i].fechaVencimiento, limite) < 0) {
 
             printf("| %d | %s | %.2f | %5d | %d/%d/%d |\n",
                 inventario[i].codigo,
-                inventario[i].tipo,
+                inventario[i].tipoOriginal,
                 inventario[i].precio,
                 inventario[i].stock,
                 inventario[i].fechaVencimiento.dia,

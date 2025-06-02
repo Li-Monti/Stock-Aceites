@@ -1,33 +1,5 @@
-/* Un supermercadi quiere implementar un software que le permita tener un control sobre el stock de aceites comestibles
-en us locales.
-Busca una solucion informatica para lograr eficiencia y rapidez a la hora de manipular la informacion de los productos
-considerados
 
-Desde la captura de requerimientos que realizo nuestro companero de equipo, pudo detectar
-que en la cadena de supermercados el aceute se caracteriza por:
-    a)Codigo
-    b)Marca
-    c)Presentacion (500,1000,1500,5000 ml)
-    d)Tipo de aceite: girasol, oliva, maiz, mezcla
-    e)Precio
-    f)Fecha de vencimiento (a/m/d)
-    g)Stock (unidades)
-
-El cliente en principio no conoce la cantidad de aceites a cargar, por lo que el software deberia permitirle cargar
-hasta donde lo desee
-
-Las funcionabilidades de interes que pretende resolver el cliente a partir del software son:asm
-    1.Stock disponible por marca y presentacion
-    2.Stock disponible por tipo de aceite en litros
-    3.Marca del aceite mas barato
-    4.Stock del aceite marca "Cocinero" con fecha de vencimiento anterior al 12/09/2025
-    5.Cantidad total de unidades de 1000ml
-    6.Porcentaje de aceites de 1500 ml que cuestan menos de $4800
-    7.Listado de stock por tipo de aceite
-    8.Listado del stock por marca y presentacion ordenados por fecha de vencimiento
-*/
 #include<stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "estructura.h"
 #include "consultasBasicas.h"
@@ -35,6 +7,7 @@ Las funcionabilidades de interes que pretende resolver el cliente a partir del s
 #include "busquedaConFiltros.h"
 #include "ordenamientoYBuscado.h"
 #include "otrasFunciones.h"
+#include "cargarAceitesDePueba.h"
 #define max_Aceites 50
 
 int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
@@ -42,6 +15,8 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
     int tipoAceite;
     int valido;
     do{
+
+
     printf("Ingrese el codigo del Aceite: ");
 
         valido = scanf("%d", &inventario[cantidadAceites].codigo);
@@ -58,7 +33,7 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
 
         valido = scanf("%49s", inventario[cantidadAceites].marcaOriginal);
         strcpy(inventario[cantidadAceites].marca, inventario[cantidadAceites].marcaOriginal ) ;
-        miniscula(inventario[cantidadAceites].marca);
+        minuscula(inventario[cantidadAceites].marca);
 
         if(valido!=1){
             printf("Error: Ingrese una marca valida\n\n");
@@ -109,7 +84,7 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
 
 
     if ( tipoAceite > 4 || tipoAceite < 1 ) {
-        printf("Error: Ingrese un valor valido");
+        printf("Error: Ingrese un valor valido\n\n");
     }
 }while (tipoAceite < 1 || tipoAceite >4);
 
@@ -119,7 +94,7 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
 
             strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
 
-            miniscula(inventario[cantidadAceites].tipo);
+            minuscula(inventario[cantidadAceites].tipo);
 
             break;
         case 2:
@@ -127,21 +102,21 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
 
             strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
 
-            miniscula(inventario[cantidadAceites].tipo);
+            minuscula(inventario[cantidadAceites].tipo);
             break;
         case 3:
             strcpy(inventario[cantidadAceites].tipoOriginal, "Maiz");
 
             strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
 
-            miniscula(inventario[cantidadAceites].tipo);
+            minuscula(inventario[cantidadAceites].tipo);
             break;
         case 4:
             strcpy(inventario[cantidadAceites].tipoOriginal, "Mezcla");
 
             strcpy(inventario[cantidadAceites].tipo, inventario[cantidadAceites].tipoOriginal ) ;
 
-            miniscula(inventario[cantidadAceites].tipo);
+            minuscula(inventario[cantidadAceites].tipo);
             break;
     }
 
@@ -156,7 +131,7 @@ do {
     scanf("%d", &inventario[cantidadAceites].fechaVencimiento.mes);
 
     if (inventario[cantidadAceites].fechaVencimiento.mes > 12 || inventario[cantidadAceites].fechaVencimiento.mes < 1) {
-        printf("Ingrese un mes valido");
+        printf("Ingrese un mes valido\n\n");
     }
     }while (inventario[cantidadAceites].fechaVencimiento.mes > 12 || inventario[cantidadAceites].fechaVencimiento.mes < 1);
 
@@ -165,7 +140,7 @@ do {
     scanf("%d", &inventario[cantidadAceites].fechaVencimiento.dia);
 
     if (inventario[cantidadAceites].fechaVencimiento.dia > 31 || inventario[cantidadAceites].fechaVencimiento.dia < 1) {
-        printf("Ingrese un dia valido");
+        printf("Ingrese un dia valido\n\n");
     }
     }while (inventario[cantidadAceites].fechaVencimiento.dia > 31 || inventario[cantidadAceites].fechaVencimiento.dia < 1);
 
@@ -211,7 +186,7 @@ int main(){
             if (cantidadAceites >= max_Aceites) {
                 printf("Error: Inventario lleno. No se pueden agregar mas aceites.\n");
             } else {
-                cantidadAceites = cargarAceite(inventario, cantidadAceites);
+                cantidadAceites = cargarAceitesDePrueba(inventario);
             }
 
             break;

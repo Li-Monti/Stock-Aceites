@@ -9,6 +9,7 @@ add_executable( Stock-Aceites main.c
         estructuraFecha.h
 
         otrasFunciones.c
+        otrasFunciones.h
 
         consultasBasicas.c
         consultasBasicas.h
@@ -21,7 +22,9 @@ add_executable( Stock-Aceites main.c
 
         ordenamientoYBuscado.c
         ordenamientoYBuscado.h
-        otrasFunciones.h
+
+        cargarAceitesDePrueba.c
+        cargarAceitesDePueba.h
 
 
 )

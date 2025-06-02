@@ -1,9 +1,4 @@
-//
-// Created by Li on 5/25/2025.
-//
-//
-// Created by Li on 5/25/2025.
-//
+
 #include <stdio.h>
 #include <string.h>
 #include "estructura.h"
@@ -31,16 +26,16 @@ do{
 
     switch (tipoAceite){
         case 1:
-            strcpy(tipoBuscado, "Girasol");
+            strcpy(tipoBuscado, "girasol");
             break;
         case 2:
-            strcpy(tipoBuscado, "Oliva");
+            strcpy(tipoBuscado, "oliva");
             break;
         case 3:
-            strcpy(tipoBuscado, "Maiz");
+            strcpy(tipoBuscado, "maiz");
             break;
         case 4:
-            strcpy(tipoBuscado, "Mezcla");
+            strcpy(tipoBuscado, "mezcla");
             break;
     }
 
@@ -53,10 +48,10 @@ do{
         if (strcmp(inventario[i].tipo, tipoBuscado) == 0) {
             litros = (float)inventario[i].presentacion / 1000;
 
-            printf("| %d | %.2f L | %s | %.2f | %d |\n",
+            printf("|  %d  | %.2f L | %s | %.2f | %d |\n",
                   inventario[i].codigo,
                   litros,
-                  inventario[i].tipo,
+                  inventario[i].tipoOriginal,
                   inventario[i].precio,
                   inventario[i].stock);
             stockTotal = stockTotal + inventario[i].stock;
@@ -88,7 +83,7 @@ void porcentajesAceites(producto inventario[], int cantidadAceites) {
 
             printf("| %6d | %s | %.2f | %d |\n",
                   inventario[i].codigo,
-                  inventario[i].tipo,
+                  inventario[i].tipoOriginal,
                   inventario[i].precio,
                   inventario[i].stock);
 

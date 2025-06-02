@@ -10,8 +10,8 @@
 
     typedef struct {
         int codigo;
-        char marca[50];
-        char marcaOriginal[50];
+        char marca[max_Aceites];
+        char marcaOriginal[max_Aceites];
         int presentacion;
         char tipo[20] ;
         char tipoOriginal[20];
@@ -21,6 +21,4 @@
     } producto;
 
 #endif //ESTRUCT_H
-
-
 #endif //ESTRUCTURA_H

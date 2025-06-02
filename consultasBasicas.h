@@ -1,6 +1,3 @@
-//
-// Created by Li on 5/25/2025.
-//
 
 #ifndef CONSULTASBASICAS_H
 #define CONSULTASBASICAS_H

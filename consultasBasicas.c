@@ -1,15 +1,24 @@
-//
-// Created by Li on 5/25/2025.
-//
-//
-// Created by Li on 5/24/2025.
-//
+
 #include "estructura.h"
 #include <stdio.h>
 #include <string.h>
+void convertirMinusculas(char original[], char minuscula[]) {
+    int i = 0;
+    while (original[i] != '\0') {
+        if (original[i] >= 'A' && original[i] <= 'Z') {
+            minuscula[i] = original[i] + 32;
+        } else {
+            minuscula[i] = original[i];
+        }
+        i++;
+    }
+    minuscula[i] = '\0';
+}
+
 
 void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     char marcaBuscada[20];
+    char marcaminuscula[20];
     int presentacionBuscada;
     int valorPre;
     int stockTotal = 0;
@@ -33,6 +42,8 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
 
     }while (valorPre < 1 || valorPre > 4);
 
+    convertirMinusculas(marcaBuscada, marcaminuscula);
+
     switch (valorPre){
         case 1:
             presentacionBuscada = 500;
@@ -51,15 +62,16 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
 
     printf("\nResultados para marca '%s' y presentacion %d ml:\n", marcaBuscada, presentacionBuscada);
     printf("----------------------------------------------\n");
-    printf("| Codigo | Tipo         | Precio | Stock |\n");
+    printf("| Codigo |   Marca   | Tipo         | Precio | Stock |\n");
     printf("----------------------------------------------\n");
 
     for (int i = 0; i < cantidadAceites; i++) {
-        if (strcmp(inventario[i].marca, marcaBuscada) == 0 &&
+        if (strcmp(inventario[i].marca, marcaminuscula) == 0 &&
             inventario[i].presentacion == presentacionBuscada) {
-            printf("| %6d | %s | %6.2f | %5d |\n",
+            printf("| %6d | %s | %s | %6.2f | %5d |\n",
                   inventario[i].codigo,
-                  inventario[i].tipo,
+                  inventario[i].marcaOriginal,
+                  inventario[i].tipoOriginal,
                   inventario[i].precio,
                   inventario[i].stock);
             stockTotal = stockTotal + inventario[i].stock;
@@ -91,9 +103,9 @@ void cantidadUnidades1000ml(producto inventario[], int cantidadAceites) {
     for (int i=0 ; i < cantidadAceites; i++) {
         if (inventario[i].presentacion==1000) {
 
-            printf("| %6d | %s | %6.2f | %5d |\n",
+            printf("| %6d | %-12s | %6.2f | %5d |\n",
                   inventario[i].codigo,
-                  inventario[i].tipo,
+                  inventario[i].tipoOriginal,
                   inventario[i].precio,
                   inventario[i].stock);
             stockTotal = stockTotal + inventario[i].stock;
@@ -112,13 +124,13 @@ void cantidadUnidades1000ml(producto inventario[], int cantidadAceites) {
 void listadoStockPorTipo(producto inventario[], int cantidadAceites) {
 
     printf("--------------------------------------------------------------\n");
-    printf("| Codigo | Marca        | Presentacion | Precio | Stock     |\n");
+    printf("| Codigo | Marca     | Presentacion | Precio | Stock     |\n");
     printf("--------------------------------------------------------------\n");
 
     for (int i= 0; i < cantidadAceites; i++) {
-            printf("| %6d | %s | %12d | %6.2f | %9d |\n",
+            printf("| %6d | %s   | %12d  | %6.2f | %9d |\n",
                   inventario[i].codigo,
-                  inventario[i].marca,
+                  inventario[i].marcaOriginal,
                   inventario[i].presentacion,
                   inventario[i].precio,
                   inventario[i].stock);
