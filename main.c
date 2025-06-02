@@ -7,7 +7,6 @@
 #include "busquedaConFiltros.h"
 #include "ordenamientoYBuscado.h"
 #include "otrasFunciones.h"
-#include "cargarAceitesDePueba.h"
 #define max_Aceites 50
 
 int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
@@ -186,7 +185,7 @@ int main(){
             if (cantidadAceites >= max_Aceites) {
                 printf("Error: Inventario lleno. No se pueden agregar mas aceites.\n");
             } else {
-                cantidadAceites = cargarAceitesDePrueba(inventario);
+                cantidadAceites = cargarAceite(inventario, cantidadAceites);
             }
 
             break;

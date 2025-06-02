@@ -23,8 +23,5 @@ add_executable( Stock-Aceites main.c
         ordenamientoYBuscado.c
         ordenamientoYBuscado.h
 
-        cargarAceitesDePrueba.c
-        cargarAceitesDePueba.h
-
 
 )
