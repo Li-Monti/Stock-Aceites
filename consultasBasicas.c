@@ -17,6 +17,7 @@ void stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites) {
     do{
         printf("Ingrese la marca: ");
         scanf("%49s", marcaBuscada);
+
         printf("Elija la presentacion del Aceite:");
         printf("\n1. 500 ml");
         printf("\n2. 1000 ml");
@@ -114,13 +115,14 @@ void cantidadUnidades1000ml(producto inventario[], int cantidadAceites) {
 void listadoStockPorTipo(producto inventario[], int cantidadAceites) {
 
     printf("--------------------------------------------------------------\n");
-    printf("| Codigo | Marca     | Presentacion | Precio | Stock     |\n");
+    printf("| Codigo | Marca     | Presentacion |  Tipo  | Precio | Stock     |\n");
     printf("--------------------------------------------------------------\n");
 
     for (int i= 0; i < cantidadAceites; i++) {
-            printf("| %6d | %s   | %12d  | %6.2f | %9d |\n",
+            printf("| %6d | %s   | %s  | %d  | %6.2f | %9d |\n",
                   inventario[i].codigo,
                   inventario[i].marcaOriginal,
+                  inventario[i].tipoOriginal,
                   inventario[i].presentacion,
                   inventario[i].precio,
                   inventario[i].stock);

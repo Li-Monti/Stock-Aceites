@@ -125,7 +125,8 @@ int cargarAceite(producto inventario[max_Aceites], int cantidadAceites) {
 
     printf("Ingrese el anio de vencimiento: ");
     scanf("%d", &inventario[cantidadAceites].fechaVencimiento.anio);
-do {
+
+    do {
     printf("Ingrese el mes de vencimiento: ");
     scanf("%d", &inventario[cantidadAceites].fechaVencimiento.mes);
 

@@ -1,7 +1,6 @@
 
 #ifndef CONSULTASBASICAS_H
 #define CONSULTASBASICAS_H
-int cargarAceite(producto inventario[], int cantidadAceites);
 
 int stockPorMarcaYPresentacion(producto inventario[], int cantidadAceites);
 
